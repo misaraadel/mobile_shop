@@ -1,0 +1,319 @@
+/*start general properties for website*/
+@font-face {
+    font-family: "ExpoArabic";
+    src: url(../fonts/ExpoArabic/ExpoArabic-Medium.ttf);
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "ExpoArabic";
+    src: url(../fonts/ExpoArabic/ExpoArabic-Book.ttf);
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "ExpoArabic";
+    src: url(../fonts/ExpoArabic/ExpoArabic-SemiBold.ttf);
+    font-weight: 900;
+}
+
+* {
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "ExpoArabic" , sans-serif ;
+    scroll-behavior: smooth;
+
+    &::selection{
+        background-color: #661B54;
+        color: #fff; 
+    }
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: #ccc;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #661B54; 
+        border-radius: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: #FFD371; 
+    }
+}
+.overflowNone{
+    overflow: hidden;
+}
+
+.btn:focus,
+button:focus,
+input:focus,
+.form-control:focus {
+    outline-width: 0px !important;
+    outline-color: transparent !important;
+    box-shadow: 0 0 0 0 rgba($color: #000000, $alpha: 0);
+}
+
+a {
+    text-decoration: none !important;
+}
+
+ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.owl-theme .owl-dots .owl-dot span{
+    width: 20px;
+    height: 4px;
+    border-radius: 4px;
+    background-color: #661B54;
+    opacity: .5;
+    transition: all .5s linear;
+}
+
+
+.owl-theme .owl-dots .owl-dot.active span,
+.owl-theme .owl-dots .owl-dot:hover span{
+    background-color: #661B54;
+    opacity: 1;
+}
+
+.overflowNone{
+    overflow: hidden;
+}
+
+.custom-btn{
+    z-index: 1;
+    position: relative;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 8px 12px;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    outline: none;
+    border: none;
+    font-weight: 900;
+    border: 1px solid #661B54;
+    cursor: pointer;
+
+    &.primary-btn{
+        background-color: #661B54;
+        color: #fff;
+        
+        &::before {
+            background-color: #fff;
+        }
+    }
+
+    &.secondary-btn{
+        color: #661B54;
+
+        &::before{
+            background-color: #661B54;
+        }
+    }
+
+    &::before {
+        content: '';
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform-origin: center top;
+        transform: scaleY(0);
+        transition: transform 0.25s ease-in-out;
+    }
+  
+    &:hover {
+        &.primary-btn{
+            color: #661B54;
+        }
+
+        &.secondary-btn{
+            border-color: #661B54;
+            color: #fff;
+        }   
+
+        &::before {
+          transform-origin: center bottom;
+          transform: scaleY(1);
+        }
+    }
+}
+
+.heading{
+    width: 100%;
+    margin-bottom: 50px;
+    text-align: center;
+    h4{
+        color: #000000;
+        font-size: 20px;
+        font-weight: 900;
+        padding: 0px 30px;
+        width: fit-content;
+        margin: 0px auto 20px;
+        position: relative;
+        
+        &::After , &::before{
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            top: calc(50% - 10px);
+            background: url('../images/chair.svg');
+            background-position: center;
+            background-size: contain;
+            filter: invert(13%) sepia(25%) saturate(5680%) hue-rotate(290deg) brightness(98%) contrast(94%);
+        }
+
+        &::After {
+            right: 0px;
+        }
+
+        &::before{
+            left: 0px;
+        }
+    }
+
+    p{
+        color: #999;
+        font-size: 15px;
+        font-weight: 500;
+        margin: 0px;
+    }
+}
+
+.product-box{
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba($color: #661B54 , $alpha: .02);
+    overflow: hidden;
+    background-color: #fff;
+    transition: all .3s linear;
+
+    .image-content{
+        width: 100%;
+        height: 300px;
+        position: relative;
+
+        .icon-link{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+            background-color: #661B54;
+            border-radius: 50%;
+            opacity: 0;
+            transition: all .3s linear;
+            z-index: 99;
+
+            i{
+                color: #fff;
+                font-size: 14px;
+                transition: all .3s linear;
+            }
+
+            &:hover{
+                background-color: #fff;
+                box-shadow: 0px 0px 10px rgba($color: #661B54 , $alpha: .2);
+
+                i{
+                    animation: pulse 1s linear;
+                    color: #661B54;
+                }
+            }
+        }
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-position: center;
+            transition: all .4s linear;
+        }
+    }
+
+    .content{
+        width: 100%;
+        padding: 20px 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+        h4{
+            color: #000000;
+            font-size: 20px;
+            font-weight: 600;
+            text-align: center;
+            margin: 0px;
+        }
+
+        .flex-content{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: space-between;
+            margin: 20px 0px;
+            p{
+                font-size: 15px;
+                font-weight: 500;
+                margin: 0px;
+
+                &.price-after{
+                    color: #661B54;
+                }
+
+                &.price-before{
+                    color: #999;
+                    width: fit-content;
+                    position: relative;
+                    padding: 0px 5px;
+                    z-index: 9;
+
+                    &::After{
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        height: 1px;
+                        z-index: -1;
+                        background-color: #999;
+                        top: 50%;
+                        left: 0;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+            
+        }
+    }
+
+    &:hover{
+        transform: translateY(-10px);
+
+        .image-content{
+            .icon-link{
+                animation: rotate-scale-up .5s linear;
+                opacity: 1;
+            }
+        }
+    }
+}

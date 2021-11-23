@@ -1,0 +1,104 @@
+@media (max-width: 999px) {
+    .navbar{
+        .hamburger{
+            display: block !important;
+        }
+
+        &.scrolled{
+            .navbar-nav{
+                top: 84px !important;
+            }
+        }
+
+        .navbar-nav{
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            top: 100px;
+            padding: 20px 15px;
+            right: -100%;
+            z-index: 99999 !important;
+            flex-direction: column !important;
+            justify-content: flex-start;
+            background-color: #fff;
+            transition: all .4s linear;
+
+            &.active-nav{
+                right: 0px;
+            }
+
+            .nav-item{
+                margin: 0px 0px 20px 0px;
+                width: 100%;
+                a{
+                    width: 100%;    
+                }
+
+                &:last-child{
+                    margin: 0px;
+                }
+
+                &.nav-dropdown{
+                    &:hover{
+                        .dropdown-list{
+                            opacity: none !important;
+                            visibility: none !important;
+                            transform: none !important;
+                        }
+                    }
+
+                    &::After{
+                        float: left;
+                    }
+
+                    .dropdown-list{
+                        width: 70% !important;
+                        height: 100vh !important;
+                        background-color: #fff !important;
+                        top: 0px !important;
+                        left: 15% !important;
+                        right: 15% !important;
+                        position: absolute !important;
+                        z-index: 99999 !important;
+                        flex-direction: column !important;
+                        overflow-y: scroll !important;
+                        overflow-x: hidden !important;
+                        transform: translateY(0px) !important; 
+                        opacity: 1 !important;
+                        visibility: visible;
+                        display: none;
+                        
+                        .close{
+                            display: block !important;
+                        }
+                    }
+                    &.active-dropdown-list{
+                        .dropdown-list{
+                            display: block !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    footer{
+        h4{
+            text-align: unset !important;
+            padding: 0px !important;
+        }
+
+        .imp-link{
+            text-align: unset !important;
+        }
+    }
+
+    .cart-contain .cart-data
+    {
+        width: 90% !important;
+        
+        .custom-btn{
+            width: 140px !important;
+        }
+    }
+}
